@@ -17,14 +17,16 @@ val map = mapOf("one" to 1,
         "8" to 8,
         "9" to 9,
 )
-fun part1(input: List<String>): Int {
-    return input.sumOf { number -> (number.first { char -> char.isDigit() } + number.last { int -> int.isDigit() }.toString()).toInt() }
-}
 
-fun part2(input: List<String>): Int {
-    return input.sumOf { number -> (map[number.findAnyOf(map.keys)?.second].toString() + map[number.findLastAnyOf(map.keys)?.second]!!).toInt() }
-}
 fun main() {
+
+    fun part1(input: List<String>): Int {
+        return input.sumOf { number -> (number.first { char -> char.isDigit() } + number.last { int -> int.isDigit() }.toString()).toInt() }
+    }
+
+    fun part2(input: List<String>): Int {
+        return input.sumOf { number -> (map[number.findAnyOf(map.keys)?.second].toString() + map[number.findLastAnyOf(map.keys)?.second]!!).toInt() }
+    }
 
     val testToggle = false
 
